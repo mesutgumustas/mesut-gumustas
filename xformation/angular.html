@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mesut GUMUSTAS - X-Formation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+ <script>
+  
+  var mapp=angular.module("myapp",[]);
+  mapp.controller("mycontol", function($scope)
+  {
+ $scope.datas=[
+  {
+    "nickname": "John Doe",
+    "team": "Support",
+    "contributions": 6
+  },
+  {
+    "nickname": "Private Gomer Pyle",
+    "team": "Admins",
+    "contributions": 4
+  },
+  {
+    "nickname": "John Kowalski",
+    "team": "LAC",
+    "contributions": 10
+  },
+  {
+    "nickname": "Forrest Gump",
+    "team": "LAC",
+    "contributions": 10
+  },
+  {
+    "nickname": "David Bowman",
+    "team": "Licstat",
+    "contributions": 5
+  },
+  {
+    "nickname": "Neo",
+    "team": "LM-X",
+    "contributions": 1
+  },
+  {
+    "nickname": "Han Solo",
+    "team": "Internal Systems",
+    "contributions": 4
+  },
+  {
+    "nickname": "Indiana Jones",
+    "team": "LM-X",
+    "contributions": 3
+  },
+  {
+    "nickname": "Edward Scissorhands",
+    "team": "Admins",
+    "contributions": 3
+  },
+  {
+    "nickname": "Tyler Durden",
+    "team": "Licstat",
+    "contributions": 7
+  }
+];
+  
+  });
+  
+  </script>
+  
+  </head>
+  <body ng-app="myapp" ng-controller="mycontol"">
+  
+   <div class="form-group">
+   <p style="position: absolute;">Search: </p>
+    <input type="search" class="form-control" ng-model="search" style="width:200px; margin-left: 70px; margin-top:20px;" placeholder="Search">
+  </div>
+  
+  <ul class="list-group">
+  <li ng-repeat="data in datas | filter:search | orderBy : '-contributions'" class='list-group-item list-group-item-success'>nickname : {{data.nickname}}</br>
+  team : {{data.team}}</br>
+  contributions : {{data.contributions}}</li>
+ 
+</ul>
+  
+ 
+
+  </body>
+</html>
